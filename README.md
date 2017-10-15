@@ -1,2 +1,2 @@
 # pyalgorithms
-Algorithm practice in python.
+Algorithm practice in python (not optimized).
