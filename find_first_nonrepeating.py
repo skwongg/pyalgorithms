@@ -1,17 +1,17 @@
 # Find the first non-repeated character in a String
+
 def find_first_nonrepeating(stringput):
-    charmap = {}
-    ordered_chars = []
+    possible = []
+    not_possible = set()
     for char in stringput:
-        if char in charmap:
-            charmap[char]+=1
+        if (char not in possible) and (char not in not_possible):
+            possible.append(char)
+        elif (char in possible):
+            possible.remove(char)
+            not_possible.add(char)
         else:
-            charmap[char]=1
-            if char not in ordered_chars:
-                ordered_chars.append(char)
-    for char in ordered_chars:
-        if charmap[char] == 1:
-            return char
-    return "No repeating chars found"
-    
-print (find_first_nonrepeating('zaaafuirhgaliunfsdlvdahyfwufiwahbfsavsdfsdf'))
+            not_possible.add(char)
+    return possible[0] if char else []
+
+
+print (find_first_nonrepeating('aaafuihgagliunnfsdlvdahyyfwufiwahbfsavsdfsdf'))
